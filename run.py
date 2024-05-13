@@ -1,3 +1,5 @@
+from random import randint
+
 def run_game(hit, miss, sunk):
     """
     Creates the board for the game and prints it and holds lists for the players actions
