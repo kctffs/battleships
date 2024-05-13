@@ -1,4 +1,37 @@
 from random import randint, shuffle
+
+
+def investigate_ship(length_ships, start_ships, direction):
+    """
+    Investigates the ships length, starting placement and the direction the ship is facing
+    """
+    ship = []
+    if direction == "N":
+        for num in range(length_ships):
+            ship.append(start_ships - num * 10)
+            print(start_ships - num * 10)
+    elif direction == "S":
+        for num in range(length_ships):
+            ship.append(start_ships + num * 10)
+            print(start_ships + num * 10)
+    elif direction == "E":
+        for num in range(length_ships):
+            ship.append(start_ships + num)
+            print(start_ships + num)
+    elif direction == "W":
+        for num in range(length_ships):
+            ship.append(start_ships - num)
+            print(start_ships - num)
+
+
+ships = [4]
+for length_ships in ships:
+    create_ships = randint(0, 63)
+    direction_ships = ["N", "S", "E", "W"]
+    shuffle(direction_ships)
+    print(length_ships, create_ships, direction_ships[0])
+    investigate_ship(length_ships, create_ships, direction_ships[0])
+
 """
 def run_game(hit, miss, sunk):
     
@@ -28,13 +61,3 @@ sunk = []
 
 run_game(hit, miss, sunk)
 """
-
-create_ships = randint(0, 63)
-direction_list = ["N", "S", "E", "W"]
-shuffle(direction_list)
-print(create_ships, direction_list[0])
-
-
-
-
-
