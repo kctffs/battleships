@@ -10,9 +10,16 @@ def validate_ship(ship):
 
     for i in range(len(ship)):
         number = ship[i]
-        if number > 0 or number < 99:
-            ship = [-1]
+        if number < 0:
+            ship = [1000]
             break
+        elif number > 99:
+            ship = [1000]
+            break
+        elif ship[i] % 10 == 9 and i < len(ship)-1:
+            if ship[i + 1] % 10 == 0:
+                ship = [1000]
+                break
 
     return ship
 
@@ -29,31 +36,33 @@ def investigate_ship(length_ships, start_ships, direction):
     if direction == "N":
         for i in range(length_ships):
             ship.append(start_ships - i * 10)
-            print(start_ships - i * 10)
             ship = validate_ship(ship)
     elif direction == "S":
         for i in range(length_ships):
             ship.append(start_ships + i * 10)
-            print(start_ships + i * 10)
             ship = validate_ship(ship)
     elif direction == "E":
         for i in range(length_ships):
             ship.append(start_ships + i)
-            print(start_ships + i)
             ship = validate_ship(ship)
     elif direction == "W":
         for i in range(length_ships):
             ship.append(start_ships - i)
-            print(start_ships - i)
-            ship = validate_ship(ship)
+    ship = validate_ship(ship)
+    return ship
 
-ships = [5]
+valid_ships = []
+ships = [4, 3, 3]
 for length_ships in ships:
-    create_ships = randint(0, 99)
-    direction_ships = ["N", "S", "E", "W"]
-    shuffle(direction_ships)
-    print(length_ships, create_ships, direction_ships[0])
-    investigate_ship(length_ships, create_ships, direction_ships[0])
+    ship = [1000]
+    while ship[0] == 1000:
+        create_ships = randint(0, 99)
+        direction_ships = ["N", "S", "E", "W"]
+        shuffle(direction_ships)
+        print(length_ships, create_ships, direction_ships[0])
+        ship = investigate_ship(length_ships, create_ships, direction_ships[0])
+    valid_ships.append(ship)
+    print(valid_ships)
 
 """
 def run_game(hit, miss, sunk):
