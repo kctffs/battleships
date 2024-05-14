@@ -45,9 +45,9 @@ def run_game(hit, miss, sunk):
     print("   0  1  2  3  4  5  6  7 ")
 
     position = 1
-    for xaxis in range(8):
+    for xaxis in range(10):
         rows = ""
-        for yaxis in range(8):
+        for yaxis in range(10):
             water = " ~ "
             if position in hit:
                 water = " X "
@@ -60,7 +60,7 @@ def run_game(hit, miss, sunk):
             position += 1
         print(xaxis, rows)
 
-hit = [8, 16, 24, 32, 40, 48, 56, 64]
+hit = [5,15,25,35,45,55,65]
 miss = []
 sunk = []
 
