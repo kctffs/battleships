@@ -9,8 +9,8 @@ def validate_ship(ship):
     """
 
     for i in range(len(ship)):
-        num = ship[i]
-        if num > 0 or num < 99:
+        number = ship[i]
+        if number > 0 or number < 99:
             ship = [-1]
             break
 
@@ -26,22 +26,22 @@ def investigate_ship(length_ships, start_ships, direction):
     """
 
     ship = []
-    if direction == 1:
+    if direction == "N":
         for i in range(length_ships):
             ship.append(start_ships - i * 10)
             print(start_ships - i * 10)
             ship = validate_ship(ship)
-    elif direction == 3:
+    elif direction == "S":
         for i in range(length_ships):
             ship.append(start_ships + i * 10)
             print(start_ships + i * 10)
             ship = validate_ship(ship)
-    elif direction == 2:
+    elif direction == "E":
         for i in range(length_ships):
             ship.append(start_ships + i)
             print(start_ships + i)
             ship = validate_ship(ship)
-    elif direction == 4:
+    elif direction == "W":
         for i in range(length_ships):
             ship.append(start_ships - i)
             print(start_ships - i)
@@ -50,9 +50,10 @@ def investigate_ship(length_ships, start_ships, direction):
 ships = [5]
 for length_ships in ships:
     create_ships = randint(0, 99)
-    direction_ships = randint(1, 4)
-    print(length_ships, create_ships, direction_ships)
-    investigate_ship(length_ships, create_ships, direction_ships)
+    direction_ships = ["N", "S", "E", "W"]
+    shuffle(direction_ships)
+    print(length_ships, create_ships, direction_ships[0])
+    investigate_ship(length_ships, create_ships, direction_ships[0])
 
 """
 def run_game(hit, miss, sunk):
@@ -85,7 +86,4 @@ miss = []
 sunk = []
 
 run_game(hit, miss, sunk)
-
-direction_ships = ["N", "S", "E", "W"]
-    shuffle(direction_ships)
 """
