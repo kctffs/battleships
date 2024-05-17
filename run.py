@@ -3,6 +3,7 @@ from random import randint, shuffle
 
 def validate_ship(ship, occupied):
 
+
     """
     Ensures that the ship is in a valid placement on the board so the game
     can be ran smoothly for the player
@@ -22,7 +23,9 @@ def validate_ship(ship, occupied):
 
     return ship
 
+
 def investigate_ship(length_ships, start_ships, direction, occupied):
+
 
     """
     Investigates the ships length, starting placement and the direction 
@@ -46,16 +49,16 @@ def investigate_ship(length_ships, start_ships, direction, occupied):
 
     return ship
 
-def building_ships():
+
+def building_ships(occupied, ships):
+
 
     """
     Produces valid warships to be placed on the board for the game by picking out the 
-    best ships
+    best from the list of ships
     """
 
-    occupied = []
     valid_ships = []
-    ships = [4, 4, 3, 3, 2, 2, 2]
     for length_ships in ships:
         ship = [-1]
         while ship[0] == -1:
@@ -71,13 +74,14 @@ def building_ships():
 
 def run_board(hit, miss, sunk):
 
+
     """
-    Creates the board for the game by printing it and holds lists for 
-    the games actions
+    Creates the board for the game by printing it
     """
 
+    print("\n   Battleships")
     print("   0  1  2  3  4  5  6  7  8  9")
-
+    
     position = 0
     for xaxis in range(10):
         rows = ""
@@ -90,41 +94,96 @@ def run_board(hit, miss, sunk):
             elif position in sunk:
                 water = " @ "
             rows = rows + water
-            position += 1
+            position = position + 1
 
         print(xaxis, rows)
 
-def player_guess(player_guess_taken):
+
+def validate_guess(guess, in_play_warships, hit, miss ,sunk):
+
 
     """
-    Function that takes the players guess with parameters that show errors where
+    Confirms that the players guesses are either hitting, missing,
+    or sinking the warships in the game
+    """
+
+    missed_shot = 0
+    for i in range(len(in_play_warships)):
+        if guess in in_play_warships[i]:
+            in_play_warships[i].remove(guess)
+            if len(in_play_warships[i]) > 0:
+                hit.append(guess)
+                missed_shot = 1
+            else:
+                sunk.append(guess)
+                missed_shot = 2
+    if missed_shot == 0:
+        miss.append(guess)
+
+    return in_play_warships, hit, miss, sunk, missed_shot
+
+
+def player_guess(player_guesses_taken):
+
+
+    """
+    Takes the players guess with parameters that show errors where
     invalid inputs are being entered
     """
 
     valid = False
     while valid == False:
         try:
-            guess = input("Enter the coordinates for your guess: \n")
+            guess = input("\nEnter the coordinates for your guess: \n")
             guess = int(guess)
             if guess < 0:
-                print(f"{int(guess)} is invalid. Try coordinates between 0 and 99.")
+                print(f"\n{int(guess)} is invalid. Try coordinates between 0 and 99.")
             elif guess > 99:
-                print(f"{int(guess)} is invalid. Try coordinates between 0 and 99.")
-            elif guess in player_guess_taken:
-                print("Coordinates already in use. Try again.")
+                print(f"\n{int(guess)} is invalid. Try coordinates between 0 and 99.")
+            elif guess in player_guesses_taken:
+                print("\nCoordinates already in use. Try again.")
             else:
                 valid = True
         except ValueError:
-            print("The guess you entered is invalid. Try coordinates between 0 and 99")
+            print("\nThe guess you entered is invalid. Try coordinates between 0 and 99")
+
+    return guess
+
+
+def initial_info():
+
+
+    """
+    Serves the purpose of the rules and asking for the players name
+    """
+
+    print("Welcome to Battleships.")
+    print("""\nThis Battleships version is a strategic 1 player where you have 50 shots
+to find and take out the enemies warships.""")
+    print("""\nLEGEND:
+    WARSHIP MISS: -
+    WARSHIP HIT: x
+    WARSHIP SUNK: @""")
+    username = input("\nEnter a username: \n")
+    print(f"\nWelcome {username}, Let's win this war at sea!")
 
 
 hit = []
 miss = []
 sunk = []
+player_guesses_taken = []
+missed_shot = 0
+occupied = []
 
-player_guess_taken = hit + miss + sunk
-guess = player_guess(player_guess_taken)
+warships = [4, 4, 3, 3, 2, 2]
+in_play_warships, occupied = building_ships(occupied, warships)
+username = initial_info()
 
-ships, occupied = building_ships()
-run_board(hit, miss, sunk)
+for num in range(5):
+    player_guesses_taken = hit + miss + sunk
+    guess = player_guess(player_guesses_taken)
+    in_play_warships, hit, miss, sunk, missed_shot = validate_guess(guess, in_play_warships, hit, miss, sunk)
+    run_board(hit, miss, sunk)
 
+    if len(in_play_warships) < 1:
+        print(f"\nCongratulations {username}, you've won the war at sea.")
