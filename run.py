@@ -79,7 +79,7 @@ def run_board(hit, miss, sunk):
     Creates the board for the game by printing it
     """
 
-    print("\n   Battleships")
+    print("\n    Battleships: 1 player mode.")
     print("   0  1  2  3  4  5  6  7  8  9")
     
     position = 0
@@ -145,7 +145,7 @@ def player_guess(player_guesses_taken):
             else:
                 valid = True
         except ValueError:
-            print("\nThe guess you entered is invalid. Try coordinates between 0 and 99")
+            print("\nThe guess you entered is invalid. Try coordinates between 0 and 99.")
 
     return guess
 
@@ -158,14 +158,25 @@ def initial_info():
     """
 
     print("Welcome to Battleships.")
-    print("""\nThis Battleships version is a strategic 1 player where you have 50 shots
-to find and take out the enemies warships.""")
+    print("""\nThis Battleships version is a strategic 1 player where you have 50 shots to find and take out the enemies warships.
+If you have successfully sunk all warships in 50 moves, you win. However, if you don't quite sink all ships within the 50 strikes,
+the game resets.""")
     print("""\nLEGEND:
-    WARSHIP MISS: -
-    WARSHIP HIT: x
-    WARSHIP SUNK: @""")
+        WARSHIP MISS: -
+        WARSHIP HIT: x
+        WARSHIP SUNK: @""")
     username = input("\nEnter a username: \n")
     print(f"\nWelcome {username}, Let's win this war at sea!")
+
+
+def checking_empty_list(multiple_lists):
+
+
+    """
+    returns all empty lists considering whether they're empty or not
+    """
+
+    return all([not elem for elem in multiple_lists])
 
 
 hit = []
@@ -175,15 +186,20 @@ player_guesses_taken = []
 missed_shot = 0
 occupied = []
 
-warships = [4, 4, 3, 3, 2, 2]
+warships = [8]
 in_play_warships, occupied = building_ships(occupied, warships)
 username = initial_info()
 
-for num in range(5):
+for num in range(50):
     player_guesses_taken = hit + miss + sunk
     guess = player_guess(player_guesses_taken)
     in_play_warships, hit, miss, sunk, missed_shot = validate_guess(guess, in_play_warships, hit, miss, sunk)
     run_board(hit, miss, sunk)
 
-    if len(in_play_warships) < 1:
-        print(f"\nCongratulations {username}, you've won the war at sea.")
+    if checking_empty_list(in_play_warships):
+        print("Congratulations, you've won the war at sea in", num, "strikes.")
+        break
+    elif num == 51:
+        input("Out of ammo, fall back and retreat.")
+        break
+
