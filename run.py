@@ -134,7 +134,7 @@ def player_guess(player_guesses_taken):
     valid = False
     while valid == False:
         try:
-            guess = input("\nEnter the coordinates for your guess: \n")
+            guess = input("\nEnter the coordinates for your guess: ")
             guess = int(guess)
             if guess < 0:
                 print(f"\n{int(guess)} is invalid. Try coordinates between 0 and 99.")
@@ -156,15 +156,18 @@ def initial_info():
     """
     Serves the purpose of the rules and asking for the players name
     """
-
+    print("=" * 30)
     print("Welcome to Battleships.")
-    print("""\nThis Battleships version is a strategic 1 player where you have 50 shots to find and take out the enemies warships.
+    print("=" * 30)
+    print("""This Battleships version is a strategic 1 player where you have 50 shots to find and take out the enemies warships.
 If you have successfully sunk all warships in 50 moves, you win. However, if you don't quite sink all ships within the 50 strikes,
 the game resets.""")
-    print("""\nLEGEND:
+    print("=" * 30)
+    print("""LEGEND:
         WARSHIP MISS: -
         WARSHIP HIT: x
         WARSHIP SUNK: @""")
+    print("=" * 30)
     username = input("\nEnter a username: \n")
     print(f"\nWelcome {username}, Let's win this war at sea!")
 
