@@ -19,10 +19,6 @@ def validate_ship(ship, occupied):
         elif number > 99:
             ship = [-1]
             break
-        elif ship[i] % 10 == 9 and i < len(ship)-1:
-            if ship[i + 1] % 10 == 0:
-                ship = [-1]
-                break
 
     return ship
 
@@ -47,6 +43,7 @@ def investigate_ship(length_ships, start_ships, direction, occupied):
         for i in range(length_ships):
             ship.append(start_ships - i)
     ship = validate_ship(ship, occupied)
+
     return ship
 
 def building_ships():
@@ -65,16 +62,14 @@ def building_ships():
             create_ships = randint(0, 99)
             direction_ships = ["N", "S", "E", "W"]
             shuffle(direction_ships)
-            print(length_ships, create_ships, direction_ships[0])
             ship = investigate_ship(length_ships, create_ships, direction_ships[0], occupied)
         valid_ships.append(ship)
         occupied = occupied + ship
-        print(valid_ships)
     
     return valid_ships, occupied
 
 
-def run_board(occupied):
+def run_board(hit, miss, sunk):
 
     """
     Creates the board for the game by printing it and holds lists for 
@@ -88,17 +83,48 @@ def run_board(occupied):
         rows = ""
         for yaxis in range(10):
             water = " ~ "
-            if position in occupied:
+            if position in hit:
+                water = " x "
+            elif position in miss:
+                water = " - "
+            elif position in sunk:
                 water = " @ "
             rows = rows + water
             position += 1
 
         print(xaxis, rows)
 
-#hit = []
-#miss = []
-#sunk = []
+def player_guess(player_guess_taken):
+
+    """
+    Function that takes the players guess with parameters that show errors where
+    invalid inputs are being entered
+    """
+
+    valid = False
+    while valid == False:
+        try:
+            guess = input("Enter the coordinates for your guess: \n")
+            guess = int(guess)
+            if guess < 0:
+                print(f"{int(guess)} is invalid. Try coordinates between 0 and 99.")
+            elif guess > 99:
+                print(f"{int(guess)} is invalid. Try coordinates between 0 and 99.")
+            elif guess in player_guess_taken:
+                print("Coordinates already in use. Try again.")
+            else:
+                valid = True
+        except ValueError:
+            print("The guess you entered is invalid. Try coordinates between 0 and 99")
+
+
+hit = []
+miss = []
+sunk = []
+
+player_guess_taken = hit + miss + sunk
+guess = player_guess(player_guess_taken)
 
 ships, occupied = building_ships()
-run_board(occupied)
+run_board(hit, miss, sunk)
 
