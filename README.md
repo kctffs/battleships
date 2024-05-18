@@ -51,7 +51,7 @@ img
 
 ## Testing.
 
- - Putting the code for Battleships: Sollo into the [PEP8 Linter] and passing first time with a few warnings of spacing, layout issues.
+ - Putting the code for Battleships: Sollo into the [PEP8 Linter](https://www.pythonchecker.com/) and passing first time with a few warnings of spacing, layout issues.
    - Quick changes to the layout resulted in 100%, passing with flying colours.
  - Testing the game also through the **Heroku** terminal when deployed.
 
@@ -72,7 +72,7 @@ img
  - ### Unfixed Bugs.
    - When the battleships are randomised and generated onto the board, they sometimes have the possibility of passing from `9` to `0`.
      - This is a bug that has not been resloved as troubleshooting and trying to achieve helo came to no avail.
-       - There will of course be a way to fix this and it is to do with the `%` operator however, this was a piece of code that could be better. As a sly solution (which is not the correct solution) the board could be interpreted as a sphere and therefore the placements of the boats become logical and the bug is no more.
+       - There will of course be a way to fix this and it is to do with the `%` operator however, this was a piece of code that could be better. As a sly solution (which is not the correct solution) the board could be interpreted as a sphere and therefore the placements of the battleships become logical and the bug is no more.
 
 ## Credits.
 
