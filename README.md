@@ -12,13 +12,13 @@ Battleships: Solo has no specific audience as the game is easily understandable 
    - Having a legend in the start up is also a huge bonus for the game as it dissmisses any confusion the player may have if heading into the game without previous playtime.
    - Username input is the last on the starting screen as it connects the player to the game.
      - After entering the username, another message is granted by motivating the player for the battle ahead.
-    
-img
+
+![start-screen](https://github.com/kctffs/battleships/assets/155545578/d89e49ae-f1fe-47ba-abdd-41516b284bfd)
 
  - ### Game Begins.
    - After initial start up, Battleships: Solo requests coordinates for your first strike in the coordinates.
-  
-img
+
+![welcome-player](https://github.com/kctffs/battleships/assets/155545578/a5478ce7-1478-42c8-8c38-3132885677ad)
 
  - ### Board & Ships.
    - The board is presented to the player with a 10 x 10 square full of `~` waves and a x-axis, y-axis labelled with numbers.
@@ -26,7 +26,7 @@ img
    - Battleships are randomised onto the board in quantites of `[5, 4, 4, 3, 2, 2]` and also face in the various North, East, South, West directions.
    - As mentioned in the legend, the board has `~` for waves and untouched areas, `-` for misses, `x` for battleships hit and `@` for sunken battleships.
 
-img
+![sunk-ship](https://github.com/kctffs/battleships/assets/155545578/093f857a-2a36-48b1-87e8-262d5b488653)
 
  - ### Input Feedback.
    - Incorporating a variety of messages that cover every aspect of input data when playing the game ensures no confusion or poor gaming experience.
@@ -34,7 +34,7 @@ img
      - For guesses that are either symbols, letters or words; the game provides a message stating to use coordinates between `0` and `99`
      - For guesses that have already been previously made the game informs the player of their mistakes and asks for another.
 
-img
+![invalid-message](https://github.com/kctffs/battleships/assets/155545578/18928a68-5f0d-405a-90d2-7841be41ac52) ![invalid-message2](https://github.com/kctffs/battleships/assets/155545578/19299412-ce9a-4487-a965-8ea9ac5be156) ![invalid-message3](https://github.com/kctffs/battleships/assets/155545578/fc699f06-dddf-4ccd-bf2a-1c1f5b7469a3)
 
  - ### Experience.
    - Battleships: Solo offers the player 50 chances to sink all the generated ships on the board.
@@ -63,6 +63,7 @@ img
        - Set the buildbacks to `Python` and `NodeJS` in that specific order.
        - Link Heroku to the repository. For example, **GitHub***.
        - Deploy.
+   - [The link to the deployed version is here.](https://battleships-solo-19b656a2afe3.herokuapp.com/)
 
  - ### Bugs.
    - Bugs encountered throughout the process where inevitable as this was the first `Python` project however, the main bugs where to do with carless coding.
