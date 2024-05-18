@@ -79,7 +79,7 @@ def run_board(hit, miss, sunk):
     Creates the board for the game by printing it
     """
 
-    print("\n    Battleships: 1 player mode.")
+    print("\n    Battleships: 1 player mode")
     print("   0  1  2  3  4  5  6  7  8  9")
     
     position = 0
@@ -134,7 +134,7 @@ def player_guess(player_guesses_taken):
     valid = False
     while valid == False:
         try:
-            guess = input("\nEnter the coordinates for your guess: ")
+            guess = input("\nEnter the coordinates for your guess: \n")
             guess = int(guess)
             if guess < 0:
                 print(f"\n{int(guess)} is invalid. Try coordinates between 0 and 99.")
@@ -160,12 +160,12 @@ def initial_info():
     print("Welcome to Battleships.")
     print("=" * 30)
     print("""This Battleships version is a strategic 1 player where you have 50 shots to find and take out the enemies warships.
-If you have successfully sunk all warships in 50 moves, you win. However, if you don't quite sink all ships within the 50 strikes,
-the game resets.""")
+If you have successfully sunk all warships in 50 moves, you win. However, if you don't quite sink all ships within 
+the 50 strikes, the game resets.""")
     print("=" * 30)
     print("""LEGEND:
         WARSHIP MISS: -
-        WARSHIP HIT: x
+        WARSHIP HIT:  x
         WARSHIP SUNK: @""")
     print("=" * 30)
     username = input("\nEnter a username: \n")
@@ -189,7 +189,7 @@ player_guesses_taken = []
 missed_shot = 0
 occupied = []
 
-warships = [8]
+warships = [5, 4, 4, 3, 2, 2]
 in_play_warships, occupied = building_ships(occupied, warships)
 username = initial_info()
 
@@ -200,9 +200,6 @@ for num in range(50):
     run_board(hit, miss, sunk)
 
     if checking_empty_list(in_play_warships):
-        print("Congratulations, you've won the war at sea in", num, "strikes.")
-        break
-    elif num == 51:
-        input("Out of ammo, fall back and retreat.")
+        print("Congratulations, you've won the war at sea in", num, "strikes.\n")
         break
 
