@@ -3,7 +3,6 @@ from random import randint, shuffle
 
 def validate_ship(ship, occupied):
 
-
     """
     Ensures that the ship is in a valid placement on the board so the game
     can be ran smoothly for the player
@@ -26,10 +25,9 @@ def validate_ship(ship, occupied):
 
 def investigate_ship(length_ships, start_ships, direction, occupied):
 
-
     """
-    Investigates the ships length, starting placement and the direction 
-    the ship is facing
+    Investigates the ships length, starting placement and the
+     direction the ship is facing
     """
 
     ship = []
@@ -52,10 +50,9 @@ def investigate_ship(length_ships, start_ships, direction, occupied):
 
 def building_ships(occupied, ships):
 
-
     """
-    Produces valid warships to be placed on the board for the game by picking out the 
-    best from the list of ships
+    Produces valid warships to be placed on the board for the
+     game by picking out the best from the list of ships
     """
 
     valid_ships = []
@@ -65,15 +62,15 @@ def building_ships(occupied, ships):
             create_ships = randint(0, 99)
             direction_ships = ["N", "S", "E", "W"]
             shuffle(direction_ships)
-            ship = investigate_ship(length_ships, create_ships, direction_ships[0], occupied)
+            ship = investigate_ship(length_ships, create_ships,
+                                    direction_ships[0], occupied)
         valid_ships.append(ship)
         occupied = occupied + ship
-    
+
     return valid_ships, occupied
 
 
 def run_board(hit, miss, sunk):
-
 
     """
     Creates the board for the game by printing it
@@ -81,7 +78,7 @@ def run_board(hit, miss, sunk):
 
     print("\n    Battleships: 1 player mode")
     print("   0  1  2  3  4  5  6  7  8  9")
-    
+
     position = 0
     for xaxis in range(10):
         rows = ""
@@ -99,8 +96,7 @@ def run_board(hit, miss, sunk):
         print(xaxis, rows)
 
 
-def validate_guess(guess, in_play_warships, hit, miss ,sunk):
-
+def ok_guess(guess, in_play_warships, hit, miss, sunk):
 
     """
     Confirms that the players guesses are either hitting, missing,
@@ -125,33 +121,34 @@ def validate_guess(guess, in_play_warships, hit, miss ,sunk):
 
 def player_guess(player_guesses_taken):
 
-
     """
     Takes the players guess with parameters that show errors where
     invalid inputs are being entered
     """
 
     valid = False
-    while valid == False:
+    if valid is False:
         try:
             guess = input("\nEnter the coordinates for your guess: \n")
             guess = int(guess)
             if guess < 0:
-                print(f"\n{int(guess)} is invalid. Try coordinates between 0 and 99.")
+                print(f"""\n{int(guess)} is invalid.
+                Try coordinates between 0 and 99.""")
             elif guess > 99:
-                print(f"\n{int(guess)} is invalid. Try coordinates between 0 and 99.")
+                print(f"""\n{int(guess)} is invalid.
+                Try coordinates between 0 and 99.""")
             elif guess in player_guesses_taken:
                 print("\nCoordinates already in use. Try again.")
             else:
                 valid = True
         except ValueError:
-            print("\nThe guess you entered is invalid. Try coordinates between 0 and 99.")
+            print("""\nThe guess you entered is invalid.
+            Try coordinates between 0 and 99.""")
 
     return guess
 
 
 def initial_info():
-
 
     """
     Serves the purpose of the rules and asking for the players name
@@ -159,9 +156,10 @@ def initial_info():
     print("=" * 30)
     print("Welcome to Battleships.")
     print("=" * 30)
-    print("""This Battleships version is a strategic 1 player where you have 50 shots to find and take out the enemies warships.
-If you have successfully sunk all warships in 50 moves, you win. However, if you don't quite sink all ships within 
-the 50 strikes, the game resets.""")
+    print("""This Battleships version is a strategic 1 player where you have 50
+    shots to find and take out the enemies warships. If you have successfully
+    sunk all warships in 50 moves, you win. However, if you don't quite sink
+    all ships within the 50 strikes, the game resets.""")
     print("=" * 30)
     print("""LEGEND:
         WARSHIP MISS: -
@@ -173,7 +171,6 @@ the 50 strikes, the game resets.""")
 
 
 def checking_empty_list(multiple_lists):
-
 
     """
     returns all empty lists considering whether they're empty or not
@@ -196,10 +193,12 @@ username = initial_info()
 for num in range(50):
     player_guesses_taken = hit + miss + sunk
     guess = player_guess(player_guesses_taken)
-    in_play_warships, hit, miss, sunk, missed_shot = validate_guess(guess, in_play_warships, hit, miss, sunk)
+    in_play_warships, hit, miss, sunk, missed_shot = ok_guess(guess,
+                                                              in_play_warships,
+                                                              hit, miss,
+                                                              sunk)
     run_board(hit, miss, sunk)
 
     if checking_empty_list(in_play_warships):
-        print("Congratulations, you've won the war at sea in", num, "strikes.\n")
+        print("Congratulations, you've won the war at sea in", num, "shots.\n")
         break
-
