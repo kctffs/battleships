@@ -24,16 +24,18 @@ Battleships: Solo has no specific audience as the game is easily understandable 
    - The board is presented to the player with a 10 x 10 square full of `~` waves and a x-axis, y-axis labelled with numbers.
      - The numbers provided correlate with the coordinates needed to type into the game.
    - Battleships are randomised onto the board in quantites of `[5, 4, 4, 3, 2, 2]` and also face in the various North, East, South, West directions.
-   - As mentioned in the legend, the board has `~` for waves and untouched areas, `-` for misses, `x` for battleships hit and `@` for sunken battleships.
+   - As mentioned in the legend, the board has `~` for waves and untouched areas, `=` for misses, `x` for battleships hit and `@` for sunken battleships.
 
-![sunk-ship](https://github.com/kctffs/battleships/assets/155545578/093f857a-2a36-48b1-87e8-262d5b488653)
+<img width="353" alt="updated game" src="https://github.com/user-attachments/assets/613561d1-797d-45b1-96db-60c154f40710">
 
  - ### Input Feedback.
    - Incorporating a variety of messages that cover every aspect of input data when playing the game ensures no confusion or poor gaming experience.
+     - For a blank username input, the game shows an error message and will not proceed until a valid username is chosen.
      - For guesses that are under `0` or guesses exceeding `99` the game suggests coordinates between `0` and `99`.
      - For guesses that are either symbols, letters or words; the game provides a message stating to use coordinates between `0` and `99`
      - For guesses that have already been previously made the game informs the player of their mistakes and asks for another.
 
+<img width="473" alt="no blank username" src="https://github.com/user-attachments/assets/37b792bb-7920-4eea-8369-ba63297c2278">
 ![invalid-message](https://github.com/kctffs/battleships/assets/155545578/18928a68-5f0d-405a-90d2-7841be41ac52)
 ![invalid-message2](https://github.com/kctffs/battleships/assets/155545578/19299412-ce9a-4487-a965-8ea9ac5be156)
 ![invalid-message3](https://github.com/kctffs/battleships/assets/155545578/fc699f06-dddf-4ccd-bf2a-1c1f5b7469a3)
@@ -51,7 +53,7 @@ Battleships: Solo has no specific audience as the game is easily understandable 
 
 ## Testing.
 
- - Putting the code for Battleships: Sollo into the [PEP8 CI Python Linter](https://pep8ci.herokuapp.com/) threw some initial erros over layout issues.
+ - Putting the code for Battleships: Solo into the [PEP8 CI Python Linter](https://pep8ci.herokuapp.com/) threw some initial erros over layout issues.
    - Quick changes to the layout resulted in 100%, passing.
  - Testing the game also through the **Heroku** terminal when deployed.
 
