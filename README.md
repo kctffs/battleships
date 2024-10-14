@@ -35,8 +35,7 @@ Battleships: Solo has no specific audience as the game is easily understandable 
      - For guesses that are either symbols, letters or words; the game provides a message stating to use coordinates between `0` and `99`
      - For guesses that have already been previously made the game informs the player of their mistakes and asks for another.
 
-<img width="473" alt="no blank username" src="https://github.com/user-attachments/assets/c6a9be38-6db1-493c-9cf6-a8b70fd928d2">
-
+<img width="473" alt="no blank username" src="https://github.com/user-attachments/assets/c6a9be38-6db1-493c-9cf6-a8b70fd928d2"> 
 ![invalid-message](https://github.com/kctffs/battleships/assets/155545578/18928a68-5f0d-405a-90d2-7841be41ac52)
 ![invalid-message2](https://github.com/kctffs/battleships/assets/155545578/19299412-ce9a-4487-a965-8ea9ac5be156)
 ![invalid-message3](https://github.com/kctffs/battleships/assets/155545578/fc699f06-dddf-4ccd-bf2a-1c1f5b7469a3)
@@ -88,6 +87,6 @@ Battleships: Solo has no specific audience as the game is easily understandable 
    - For deployment on a mock terminal on **Heroku** created by [Code Institute.](https://codeinstitute.net/)
 
  - ### Code.
-   - Along with the assessment example from **Code Institute**, inpiration for the game and especially defining and the returning empty lists code came from a [YouTube video](https://youtu.be/aMLSS-JVYZk?si=GbFvP93vXYA-87lE&t=1346) at `22:26` by DrCodie.
-     - Side note: In the video, they state the code is not theres and is from the internet. As there is no reference, I have credited the video I got the inspiration from instead.
+   - Along with the assessment example from **Code Institute**, inspiration for the game and especially defining and the returning empty lists code came from a [YouTube video](https://youtu.be/aMLSS-JVYZk?si=GbFvP93vXYA-87lE&t=1346) at `22:26` by DrCodie.
+     - Side note: In the video, it is stated that code is not theirs and is from the internet. As there is no reference, I have credited the video I got the inspiration from instead.
          
