@@ -13,7 +13,7 @@ Battleships: Solo has no specific audience as the game is easily understandable 
    - Username input is the last on the starting screen as it connects the player to the game.
      - After entering the username, another message is granted by motivating the player for the battle ahead.
 
-<img width="740" alt="Start Screen" src="https://github.com/user-attachments/assets/7f342348-6f86-4b51-a17a-56680c987fc8">
+<img width="740" alt="Start Screen" src="https://github.com/user-attachments/assets/2568c482-f978-492b-9476-7f339d5fd61d">
 
  - ### Game Begins.
    - After initial start up, Battleships: Solo requests coordinates for your first strike in the coordinates.
@@ -36,6 +36,7 @@ Battleships: Solo has no specific audience as the game is easily understandable 
      - For guesses that have already been previously made the game informs the player of their mistakes and asks for another.
 
 <img width="473" alt="no blank username" src="https://github.com/user-attachments/assets/c6a9be38-6db1-493c-9cf6-a8b70fd928d2"> 
+
 ![invalid-message](https://github.com/kctffs/battleships/assets/155545578/18928a68-5f0d-405a-90d2-7841be41ac52)
 ![invalid-message2](https://github.com/kctffs/battleships/assets/155545578/19299412-ce9a-4487-a965-8ea9ac5be156)
 ![invalid-message3](https://github.com/kctffs/battleships/assets/155545578/fc699f06-dddf-4ccd-bf2a-1c1f5b7469a3)
