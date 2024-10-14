@@ -159,7 +159,13 @@ def initial_info():
     print("""This Battleships version is a strategic 1 player where you have 50
     shots to find and take out the enemies warships. If you have successfully
     sunk all warships in 50 moves, you win. However, if you don't quite sink
-    all ships within the 50 strikes, the game resets.""")
+    all ships within the 50 strikes, the game resets.
+
+    *** H I N T ***
+
+    Coordinates are between 0 and 99.
+    The first digit of your answer is for the row and the second is
+    for your column.""")
     print("=" * 30)
     print("""LEGEND:
         WARSHIP MISS: =
@@ -169,17 +175,12 @@ def initial_info():
     username = input("\nEnter a username: \n")
     if username == "":
         print("Username cannot be blank. Please enter a username.")
+        print(" " * 30)
         return initial_info()
     else:
         return username
 
-    print(f"""\n
-    Welcome {username}, Let's win this war at sea!
-
-    Please enter coordinates between 0 and 99.
-
-    * HINT * The first digit of your answer is for the row and the second is
-    for your column.""")
+    print(f"\nWelcome {username}, Let's win this war at sea!")
 
 
 def checking_empty_list(multiple_lists):
