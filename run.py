@@ -87,7 +87,7 @@ def run_board(hit, miss, sunk):
             if position in hit:
                 water = " x "
             elif position in miss:
-                water = " - "
+                water = " = "
             elif position in sunk:
                 water = " @ "
             rows = rows + water
@@ -162,12 +162,19 @@ def initial_info():
     all ships within the 50 strikes, the game resets.""")
     print("=" * 30)
     print("""LEGEND:
-        WARSHIP MISS: -
+        WARSHIP MISS: =
         WARSHIP HIT:  x
         WARSHIP SUNK: @""")
     print("=" * 30)
     username = input("\nEnter a username: \n")
-    print(f"""\nWelcome {username}, Let's win this war at sea!
+    if username == "":
+        print("Username cannot be blank. Please enter a username.")
+        return initial_info()
+    else:
+        return username
+
+    print(f"""\n
+    Welcome {username}, Let's win this war at sea!
 
     Please enter coordinates between 0 and 99.
 
