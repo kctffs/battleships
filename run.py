@@ -167,7 +167,12 @@ def initial_info():
         WARSHIP SUNK: @""")
     print("=" * 30)
     username = input("\nEnter a username: \n")
-    print(f"\nWelcome {username}, Let's win this war at sea!")
+    print(f"""\nWelcome {username}, Let's win this war at sea!
+
+    Please enter coordinates between 0 and 99.
+
+    * HINT * The first digit of your answer is for the row and the second is
+    for your column.""")
 
 
 def checking_empty_list(multiple_lists):
