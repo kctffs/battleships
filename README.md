@@ -35,7 +35,7 @@ Battleships: Solo has no specific audience as the game is easily understandable 
      - For guesses that are either symbols, letters or words; the game provides a message stating to use coordinates between `0` and `99`
      - For guesses that have already been previously made the game informs the player of their mistakes and asks for another.
 
-<img width="473" alt="no blank username" src="https://github.com/user-attachments/assets/37b792bb-7920-4eea-8369-ba63297c2278">
+<img width="473" alt="no blank username" src="https://github.com/user-attachments/assets/c6a9be38-6db1-493c-9cf6-a8b70fd928d2">
 
 ![invalid-message](https://github.com/kctffs/battleships/assets/155545578/18928a68-5f0d-405a-90d2-7841be41ac52)
 ![invalid-message2](https://github.com/kctffs/battleships/assets/155545578/19299412-ce9a-4487-a965-8ea9ac5be156)
