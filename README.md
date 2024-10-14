@@ -13,7 +13,7 @@ Battleships: Solo has no specific audience as the game is easily understandable 
    - Username input is the last on the starting screen as it connects the player to the game.
      - After entering the username, another message is granted by motivating the player for the battle ahead.
 
-![start-screen](https://github.com/kctffs/battleships/assets/155545578/d89e49ae-f1fe-47ba-abdd-41516b284bfd)
+<img width="740" alt="Start Screen" src="https://github.com/user-attachments/assets/7f342348-6f86-4b51-a17a-56680c987fc8">
 
  - ### Game Begins.
    - After initial start up, Battleships: Solo requests coordinates for your first strike in the coordinates.
@@ -51,9 +51,11 @@ Battleships: Solo has no specific audience as the game is easily understandable 
 
 ## Testing.
 
- - Putting the code for Battleships: Sollo into the [PEP8 Linter](https://www.pythonchecker.com/) and passing first time with a few warnings of spacing, layout issues.
-   - Quick changes to the layout resulted in 100%, passing with flying colours.
+ - Putting the code for Battleships: Sollo into the [PEP8 CI Python Linter](https://pep8ci.herokuapp.com/) threw some initial erros over layout issues.
+   - Quick changes to the layout resulted in 100%, passing.
  - Testing the game also through the **Heroku** terminal when deployed.
+
+<img width="1415" alt="PEP8 CI Linter Proof" src="https://github.com/user-attachments/assets/6bcf1a62-4259-40f7-83e9-c535d1b00dc5">
 
  - ### Deployment.
    - The deployment of Battleships: Solo was through the mock terminal created by Code Institute on Heroku.
